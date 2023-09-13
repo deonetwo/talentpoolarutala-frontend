@@ -1,0 +1,29 @@
+<p *ngIf="!products?.length"><em>Loading...</em></p>
+<div class="container">
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+    <div class="col mb-5" *ngFor="let product of products">
+      <div class="card" style="width: 18rem">
+        <a [routerLink]="['/detail']">
+          <img
+            src="{{ product.img }}"
+            class="card-img-top stretched-link"
+            style="height: 18rem"
+            alt="{{ product.name }}"
+          />
+        </a>
+        <div class="card-body">
+          <a
+            [routerLink]="['/detail']"
+            style="color: inherit; text-decoration: inherit"
+          >
+            <p class="card-title">{{ product.name }}</p>
+          </a>
+          <h5 class="card-text">{{ product.price }}</h5>
+          <a href="http://localhost:4200/cart" class="btn btn-primary"
+            >Add to chart</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
