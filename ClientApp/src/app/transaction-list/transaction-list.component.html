@@ -1,1 +1,62 @@
-<p>transaction-list works!</p>
+<p *ngIf="!transactions?.length"><em>Loading...</em></p>
+
+<div class="card mb-4" *ngFor="let transaction of transactions">
+  <div class="card-header py-3">
+    <a [routerLink]="['/transaction-detail']" class="stretched-link">
+      <h5 class="mb-0">
+        {{ transaction.invoice_number }} - {{ transaction.store }}
+      </h5>
+    </a>
+  </div>
+  <div class="card-body">
+    <!-- Single item -->
+    <div class="row">
+      <div class="col-lg-2 col-md-12 mb-4 mb-lg-0">
+        <!-- Image -->
+        <div
+          class="bg-image hover-overlay hover-zoom ripple rounded"
+          data-mdb-ripple-color="light"
+        >
+          <img
+            src="{{ transaction.products[0].img }}"
+            class="w-100 stretched-link"
+            alt="{{ transaction.products[0].name }}"
+          />
+          <a href="#!">
+            <div
+              class="mask"
+              style="background-color: rgba(251, 251, 251, 0.2)"
+            ></div>
+          </a>
+        </div>
+        <!-- Image -->
+      </div>
+
+      <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+        <!-- Data -->
+        <p>
+          <strong>{{ transaction.products[0].name }}</strong>
+        </p>
+        <p>
+          <strong>Total items: x {{ transaction.products.length }}</strong>
+        </p>
+        <p>
+          <strong>Date: </strong>
+          {{ transaction.date }}
+        </p>
+        <p>
+          <strong
+            >Total: Rp
+            {{
+              transaction.total.toLocaleString("id-ID", {
+                minimumFractionDigits: 0
+              })
+            }}</strong
+          >
+        </p>
+        <h6>Status: {{ transaction.status }}</h6>
+      </div>
+    </div>
+    <!-- Single item -->
+  </div>
+</div>

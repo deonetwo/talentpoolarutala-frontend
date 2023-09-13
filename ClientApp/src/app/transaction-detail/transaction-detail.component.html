@@ -1,1 +1,111 @@
-<p>transaction-detail works!</p>
+<p *ngIf="!transaction"><em>Loading...</em></p>
+
+<div class="card mb-4">
+  <div class="card-header py-3">
+    <h5 class="mb-0">
+      {{ transaction.invoice_number }} - {{ transaction.store }} (Courier:
+      {{ transaction.courier }})
+    </h5>
+  </div>
+  <div class="card-body">
+    <!-- Single item -->
+    <div class="row">
+      <div class="col-lg-2 col-md-12 mb-4 mb-lg-0">
+        <!-- Image -->
+        <div
+          class="bg-image hover-overlay hover-zoom ripple rounded"
+          data-mdb-ripple-color="light"
+        >
+          <img
+            src="{{ transaction.products[0].img }}"
+            class="w-100 stretched-link"
+            alt="{{ transaction.products[0].name }}"
+          />
+          <a href="#!">
+            <div
+              class="mask"
+              style="background-color: rgba(251, 251, 251, 0.2)"
+            ></div>
+          </a>
+        </div>
+        <!-- Image -->
+      </div>
+
+      <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+        <!-- Data -->
+        <p>
+          <strong>Total items: x{{ transaction.products.length }}</strong>
+        </p>
+        <p>
+          <strong>Date: </strong>
+          {{ transaction.date }}
+        </p>
+        <p>
+          <strong>Estimated Date: </strong>
+          {{ transaction.estimated_date }}
+        </p>
+        <p>
+          <strong
+            >Total: Rp
+            {{
+              transaction.total.toLocaleString("id-ID", {
+                minimumFractionDigits: 0
+              })
+            }}</strong
+          >
+        </p>
+        <h6>Status: {{ transaction.status }}</h6>
+      </div>
+    </div>
+    <!-- Single item -->
+    <div class="card mt-3">
+      <div class="card-header">
+        <h6 class="mb-0">Product List</h6>
+      </div>
+      <div class="card-body" *ngFor="let product of transaction.products">
+        <!-- Single item -->
+        <div class="row">
+          <div class="col-lg-2 col-md-12 mb-4 mb-lg-0">
+            <!-- Image -->
+            <div
+              class="bg-image hover-overlay hover-zoom ripple rounded"
+              data-mdb-ripple-color="light"
+            >
+              <img
+                src="{{ product.img }}"
+                class="w-100 stretched-link"
+                alt="{{ product.name }}"
+              />
+              <a href="#!">
+                <div
+                  class="mask"
+                  style="background-color: rgba(251, 251, 251, 0.2)"
+                ></div>
+              </a>
+            </div>
+            <!-- Image -->
+          </div>
+
+          <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+            <!-- Data -->
+            <p>
+              <strong>{{ product.name }} x 1</strong>
+            </p>
+            <p>
+              <strong
+                >Rp
+                {{
+                  product.price.toLocaleString("id-ID", {
+                    minimumFractionDigits: 0
+                  })
+                }}</strong
+              >
+            </p>
+            <p>{{ product.desc }}</p>
+          </div>
+        </div>
+        <!-- Single item -->
+      </div>
+    </div>
+  </div>
+</div>

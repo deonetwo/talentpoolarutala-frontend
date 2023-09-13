@@ -6,16 +6,11 @@ import { CartService } from '../services/cart.service';
   templateUrl: './cart.component.html',
 })
 export class CartComponent implements OnInit {
-  public currentCount = 0;
   cartTotal: number;
   cartTotalItems: number;
   cart: any[];
 
   constructor(private cartService: CartService) {}
-
-  public incrementCounter() {
-    this.currentCount++;
-  }
 
   ngOnInit(): void {
     this.cartService.getCart().subscribe((res: any) => {
