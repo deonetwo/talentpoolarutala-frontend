@@ -49,6 +49,8 @@ Kemudian temen-temen buat serta jelankan component communication terkait design 
 - CSS Framework: bootstrap
 - Arhitecture: Monolith
 
+Hasil run project dapat juga diakses melalui: https://stackblitz.com/edit/stackblitz-starters-dzqr8m
+
 ## Implemented Features
 
 - [x] Catalogue
