@@ -54,5 +54,5 @@ Kemudian temen-temen buat serta jelankan component communication terkait design 
 - [x] Catalogue
 - [x] Product details
 - [x] Cart
-- [ ] Checkout
-- [ ] Checkout details
+- [x] Checkout
+- [x] Checkout details
