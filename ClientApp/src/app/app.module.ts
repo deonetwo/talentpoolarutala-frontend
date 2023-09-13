@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ProductService } from './services/product.service';
@@ -19,7 +18,6 @@ import { TransactionDetailComponent } from './transaction-detail/transaction-det
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
     CartComponent,
     CatalogueComponent,
     ProductDetailComponent,
@@ -31,7 +29,7 @@ import { TransactionDetailComponent } from './transaction-detail/transaction-det
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: CatalogueComponent, pathMatch: 'full' },
       { path: 'cart', component: CartComponent },
       { path: 'catalogue', component: CatalogueComponent },
       { path: 'detail', component: ProductDetailComponent },
